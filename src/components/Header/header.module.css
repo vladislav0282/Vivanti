@@ -1,0 +1,28 @@
+.container {
+  height: 611px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.container_header {
+  height: 77px;
+  background: #2c6086;
+  margin-bottom: 40px;
+}
+
+.container_wrap {
+  margin: 0 auto;
+}
+
+.container_wrap_text {
+  font-family: Arial;
+  font-size: 45px;
+  font-weight: bold;
+  width: 1226px;
+  padding: 0;
+}
+
+.banner1 {
+  margin-top: 23px;
+}
