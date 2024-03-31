@@ -6,8 +6,16 @@ export const QUESTION_5 = "/question5";
 export const QUESTION_6 = "/question6";
 export const QUESTION_7 = "/question7";
 export const QUESTION_8 = "/question8";
-export const RESULT = "/result";
+export const START = "/";
+
+export const RESULT_1 = "/result1";
+export const RESULT_2 = "/result2";
+export const RESULT_3 = "/result3";
+export const RESULT_4 = "/result4";
+export const RESULT_5 = "/result5";
 export const START_ROUTE = "/";
+export const CALCULATE = "/calculate";
+
 // export const LOGIN_ROUTE = "/login";
 // export const REGISTRATION_ROUTE = "/registration";
 // export const SHOP_ROUTE = "/shop";

@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 332px;
+  width: 1224px;
+  margin: 0 auto;
+  background: #f0f0f5;
+  padding-top: 26px;
+  padding-left: 26px;
+  padding-right: 26px;
+  justify-content: space-between;
+}
+
+.container__wrap_p {
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.container_buttons {
+  display: flex;
+  margin-left: 26px;
+  margin-top: 32px;
+  gap: 38px;
+}
+
+.buttonForward {
+  height: 52px;
+  width: 360px;
+  border: 2px solid #e46f50;
+  background: #e46f50;
+}
+
+.buttonFovard_Text {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 26px;
+  color: #ffffff;
+}

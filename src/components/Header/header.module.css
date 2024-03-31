@@ -2,7 +2,6 @@
   height: 611px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .container_header {
@@ -17,7 +16,7 @@
 
 .container_wrap_text {
   font-family: Arial;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
   width: 1226px;
   padding: 0;

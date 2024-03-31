@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 1199px;
+  margin-left: 26px;
+
+  /* background: #f0f0f5; */
+  /* padding-top: 26px;
+  padding-left: 26px;
+  padding-right: 26px; */
+  /* justify-content: space-between; */
+}
+
+.container_wrapTable {
+  margin: 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 1px solid #0d446c;
+  padding: 8px;
+  height: 68px;
+}
+
+th {
+  background: #0d446c;
+  color: #ffffff;
+  font-size: 18;
+  font-family: Arial;
+  font-weight: 400;
+}
+
+td {
+  color: #0c0c0c;
+  font-size: 16;
+  font-family: Arial;
+  font-weight: 400;
+  text-align: center;
+}
+
+.th1 {
+  width: 286px;
+  border-right: 1px solid #ffffff;
+}
+.th2 {
+  width: 344px;
+  border-right: 1px solid #ffffff;
+}
+.th3 {
+  width: 376px;
+}
+
+.td1_2 {
+  background: #dbdef8;
+}
+
+.td2_2 {
+  background: #c5caee;
+}
+
+.td3_2 {
+  background: #9ba4e6;
+  color: #ffffff;
+}
+
+.td4_2 {
+  background: #7e88d2;
+  color: #ffffff;
+}
+
+.td5_2 {
+  background: #6c76bc;
+  color: #ffffff;
+}
+
+.container_wrapDiagram {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.container_wrapDiagram p {
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.container_wrapDiagram_right {
+  width: 50%;
+}
+
+.container_wrapDiagram_right_up {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container_wrapDiagram_right_down {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container_wrapDiagram_right_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_wrapButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.buttonBack_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.buttonBack {
+  height: 52px;
+  width: 360px;
+  border: 2px solid #e46f50;
+  background: #ffffff;
+}
+
+.buttonBack_Text {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 26px;
+  color: #e36746;
+}
