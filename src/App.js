@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/Vivanti">
         <Header />
         <AppRouter />
         <Footer />
