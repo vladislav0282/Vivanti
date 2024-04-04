@@ -4,16 +4,31 @@ import { useNavigate } from "react-router-dom";
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg6 from "../../assets/questImg6.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getMedicamentCheck,
+  getMedicamentCheckSelector,
+} from "../../redux/slices/medicamentCheckSlice";
 
-const Question5 = () => {
+const Question6 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const medicamentCheck = useSelector(getMedicamentCheckSelector);
+
+  function medicamentCheckHandler(e) {
+    dispatch(getMedicamentCheck(e.target.value));
+  }
 
   const goBackHandler = () => {
     navigate("/question5");
   };
 
   const goForwardHandler = () => {
-    navigate("/question7");
+    if (medicamentCheck) {
+      navigate("/question7");
+    }
+    return;
   };
 
   return (
@@ -31,11 +46,21 @@ const Question5 = () => {
         <div className={style.container_col_check}>
           <div className={style.container_col_check_men}>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={2}
+                type="radio"
+                onChange={medicamentCheckHandler}
+                name="medicament"
+              />
               <p>Да</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={0}
+                type="radio"
+                onChange={medicamentCheckHandler}
+                name="medicament"
+              />
               <p>Нет</p>
             </div>
           </div>
@@ -86,4 +111,4 @@ const Question5 = () => {
   );
 };
 
-export default Question5;
+export default Question6;

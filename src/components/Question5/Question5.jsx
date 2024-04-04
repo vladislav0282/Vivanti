@@ -4,16 +4,30 @@ import { useNavigate } from "react-router-dom";
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg5 from "../../assets/questImg5.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getPhysicaltrainingCheck,
+  getPhysicaltrainingSelector,
+} from "../../redux/slices/physicaltrainingCheckSlice";
 
 const Question5 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const physicaltrainingValue = useSelector(getPhysicaltrainingSelector);
+
+  const physicaltrainingCheckHandler = (e) => {
+    dispatch(getPhysicaltrainingCheck(e.target.value));
+  };
 
   const goBackHandler = () => {
     navigate("/question4");
   };
 
   const goForwardHandler = () => {
-    navigate("/question6");
+    if (physicaltrainingValue) {
+      navigate("/question6");
+    }
+    return;
   };
 
   return (
@@ -33,11 +47,21 @@ const Question5 = () => {
         <div className={style.container_col_check}>
           <div className={style.container_col_check_men}>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={0}
+                onChange={physicaltrainingCheckHandler}
+                type="radio"
+                name="physicaltrainingCheck"
+              />
               <p>Да</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={2}
+                onChange={physicaltrainingCheckHandler}
+                type="radio"
+                name="physicaltrainingCheck"
+              />
               <p>Нет</p>
             </div>
           </div>

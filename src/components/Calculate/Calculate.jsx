@@ -11,50 +11,70 @@ import diagram_20 from "../../assets/diagram_20.svg";
 import _20 from "../../assets/_20.svg";
 
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
-import foundationArrowRight from "../../assets/Vector.svg";
-import questImg3 from "../../assets/questImg3.svg";
+import { useSelector } from "react-redux";
+import { getTotalResultSelector } from "../../redux/slices/totalResultSlice";
 
 const Calculate = () => {
   const navigate = useNavigate();
 
+  const totalResult = useSelector(getTotalResultSelector);
+
   const goBackHandler = () => {
-    navigate("/result1");
+    if (totalResult < 7) {
+      navigate("/result1");
+    }
+    if (totalResult >= 7 && totalResult <= 11) {
+      navigate("/result2");
+    }
+    if (totalResult >= 12 && totalResult <= 14) {
+      navigate("/result3");
+    }
+    if (totalResult >= 15 && totalResult <= 20) {
+      navigate("/result4");
+    }
+    if (totalResult > 20) {
+      navigate("/result5");
+    }
+
+    return;
   };
 
   return (
     <div className={style.container}>
       <div className={style.container_wrapTable}>
         <table className={style.container_wrapTable_table}>
-          <tr>
-            <th className={style.th1}>Общее количество баллов</th>
-            <th className={style.th2}>Уровень риска СД 2 типа</th>
-            <th className={style.th3}>Вероятность развития СД 2 типа</th>
-          </tr>
-          <tr>
-            <td>Менее 7</td>
-            <td className={style.td1_2}>Низкий риск</td>
-            <td>1 из 100 или 1%</td>
-          </tr>
-          <tr>
-            <td>7–11</td>
-            <td className={style.td2_2}>Слегка повышен</td>
-            <td>1 из 25 или 4%</td>
-          </tr>
-          <tr>
-            <td>12–14</td>
-            <td className={style.td3_2}>Умеренный</td>
-            <td>1 из 6 или 17%</td>
-          </tr>
-          <tr>
-            <td>15–20</td>
-            <td className={style.td4_2}>Высокий</td>
-            <td>1 из 3 или 33%</td>
-          </tr>
-          <tr>
-            <td>Более 20</td>
-            <td className={style.td5_2}>Очень высокий</td>
-            <td>1 из 2 или 50%</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th className={style.th1}>Общее количество баллов</th>
+              <th className={style.th2}>Уровень риска СД 2 типа</th>
+              <th className={style.th3}>Вероятность развития СД 2 типа</th>
+            </tr>
+            <tr>
+              <td>Менее 7</td>
+              <td className={style.td1_2}>Низкий риск</td>
+              <td>1 из 100 или 1%</td>
+            </tr>
+            <tr>
+              <td>7–11</td>
+              <td className={style.td2_2}>Слегка повышен</td>
+              <td>1 из 25 или 4%</td>
+            </tr>
+            <tr>
+              <td>12–14</td>
+              <td className={style.td3_2}>Умеренный</td>
+              <td>1 из 6 или 17%</td>
+            </tr>
+            <tr>
+              <td>15–20</td>
+              <td className={style.td4_2}>Высокий</td>
+              <td>1 из 3 или 33%</td>
+            </tr>
+            <tr>
+              <td>Более 20</td>
+              <td className={style.td5_2}>Очень высокий</td>
+              <td>1 из 2 или 50%</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div className={style.container_wrapDiagram}>

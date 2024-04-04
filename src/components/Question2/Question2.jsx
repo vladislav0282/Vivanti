@@ -4,16 +4,32 @@ import { useNavigate } from "react-router-dom";
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg2 from "../../assets/questImg2.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getIndexBodyWeight,
+  getIndexBodyWeightSelector,
+} from "../../redux/slices/indexBodyWeightSlice";
 
 const Question2 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const indexBodyWeight = useSelector(getIndexBodyWeightSelector);
+
+  const indexBodyWeightHandleChange = (event) => {
+    const newIndexBodyWeight = event.target.value;
+    dispatch(getIndexBodyWeight(newIndexBodyWeight));
+  };
 
   const goBackHandler = () => {
     navigate("/question1");
   };
 
   const goForwardHandler = () => {
-    navigate("/question3");
+    if (indexBodyWeight) {
+      navigate("/question3");
+    }
+    return;
   };
 
   return (
@@ -46,8 +62,10 @@ const Question2 = () => {
           </div>
           <input
             className={style.container_textInput_input}
+            value={indexBodyWeight}
             id="age"
             type="text"
+            onChange={indexBodyWeightHandleChange}
             placeholder="Текст"
           />
           <p className={style.container_textInput_p}>

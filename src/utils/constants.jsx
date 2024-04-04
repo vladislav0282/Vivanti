@@ -14,7 +14,9 @@ export const RESULT_3 = "/result3";
 export const RESULT_4 = "/result4";
 export const RESULT_5 = "/result5";
 export const START_ROUTE = "/";
-export const CALCULATE = "/calculate";
+export const CALCULATE = "/calculation";
+
+export const REDUX_LS_KEY = "REDUX_LS_KEY";
 
 // export const LOGIN_ROUTE = "/login";
 // export const REGISTRATION_ROUTE = "/registration";

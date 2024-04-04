@@ -5,6 +5,11 @@ import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg4 from "../../assets/questImg4.svg";
 import Select from "react-select";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getOptionVal,
+  getOptionValSelector,
+} from "../../redux/slices/optionSlice";
 
 const customStyles = {
   option: (provided, state) => ({
@@ -16,19 +21,27 @@ const customStyles = {
 
 const options = [
   { value: "0", label: "Каджый день (0 баллов)" },
-  { value: "1", label: " Не каждый день (1 балл)" },
-  // Добавьте остальные опции здесь
+  { value: "1", label: "Не каждый день (1 балл)" },
 ];
 
 const Question4 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const optionVal = useSelector(getOptionValSelector);
+
+  const optionValueHandler = (options) => {
+    dispatch(getOptionVal(options.value));
+  };
 
   const goBackHandler = () => {
     navigate("/question3");
   };
 
   const goForwardHandler = () => {
-    navigate("/question5");
+    if (optionVal) {
+      navigate("/question5");
+    }
+    return;
   };
 
   return (
@@ -39,7 +52,7 @@ const Question4 = () => {
         </div>
         <div className={style.container_textInput}>
           <div className={style.container_textInput_label}>
-            <label for="select">
+            <label htmlFor="select">
               Как часто Ваш пациент ест овощи, фрукты или ягоды?
             </label>
           </div>
@@ -48,6 +61,7 @@ const Question4 = () => {
               components={{
                 IndicatorSeparator: () => null,
               }}
+              onChange={optionValueHandler}
               dropdownAlign={{ offset: [0, 0] }}
               options={options}
               styles={customStyles}
@@ -65,19 +79,6 @@ const Question4 = () => {
               })}
             />
           </div>
-
-          {/* <select
-            name=""
-            id="select"
-            className={style.container_textInput_select}
-          >
-            <option value="">
-              Каджый день (0 баллов)
-            </option>
-            <option value="">
-              Не каждый день (1 балл)
-            </option>
-          </select> */}
         </div>
         <div className={style.container_buttons}>
           <button

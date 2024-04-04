@@ -4,16 +4,98 @@ import { useNavigate } from "react-router-dom";
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg8 from "../../assets/questImg8.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getSugarParentCheck,
+  getSugarParentCheckSelector,
+} from "../../redux/slices/sugarParentCheckSlice";
+import { getAgeSelector } from "../../redux/slices/ageSlice";
+import { getIndexBodyWeightSelector } from "../../redux/slices/indexBodyWeightSlice";
+import { getCheckBodySelector } from "../../redux/slices/checkBodySlice";
+import { getOptionValSelector } from "../../redux/slices/optionSlice";
+import { getPhysicaltrainingSelector } from "../../redux/slices/physicaltrainingCheckSlice";
+import { getMedicamentCheckSelector } from "../../redux/slices/medicamentCheckSlice";
+import { getSugarCheckSelector } from "../../redux/slices/sugarCheckSlice";
+import { getTotalResult } from "../../redux/slices/totalResultSlice";
 
 const Question8 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const age = useSelector(getAgeSelector);
+  const indexBodyWeight = useSelector(getIndexBodyWeightSelector);
+  const checkBodyValue = useSelector(getCheckBodySelector);
+  const optionVal = useSelector(getOptionValSelector);
+  const physicaltrainingValue = useSelector(getPhysicaltrainingSelector);
+  const medicamentCheck = useSelector(getMedicamentCheckSelector);
+  const sugarCheck = useSelector(getSugarCheckSelector);
+  const sugarParentCheck = useSelector(getSugarParentCheckSelector);
+  let ageRating = null;
+  let indexBodyWeightRating = null;
+
+  if (+age < 45) {
+    ageRating = "0";
+  }
+  if (+age >= 45 && +age <= 54) {
+    ageRating = "2";
+  }
+  if (+age >= 55 && +age <= 64) {
+    ageRating = "3";
+  }
+  if (+age > 65) {
+    ageRating = "4";
+  }
+
+  if (+indexBodyWeight < 25) {
+    indexBodyWeightRating = "0";
+  }
+  if (+indexBodyWeight >= 25 && +age <= 30) {
+    indexBodyWeightRating = "1";
+  }
+
+  if (+indexBodyWeight > 30) {
+    indexBodyWeightRating = "3";
+  }
+
+  let totalResult =
+    +ageRating +
+    +indexBodyWeightRating +
+    +checkBodyValue +
+    +optionVal +
+    +physicaltrainingValue +
+    +medicamentCheck +
+    +sugarCheck +
+    +sugarParentCheck;
+
+  dispatch(getTotalResult(totalResult));
+
+  function sugarParentCheckHandler(e) {
+    dispatch(getSugarParentCheck(e.target.value));
+  }
 
   const goBackHandler = () => {
     navigate("/question7");
   };
 
   const goForwardHandler = () => {
-    navigate("/result1");
+    if (sugarParentCheck) {
+      if (totalResult < 7) {
+        navigate("/result1");
+      }
+      if (totalResult >= 7 && totalResult <= 11) {
+        navigate("/result2");
+      }
+      if (totalResult >= 12 && totalResult <= 14) {
+        navigate("/result3");
+      }
+      if (totalResult >= 15 && totalResult <= 20) {
+        navigate("/result4");
+      }
+      if (totalResult > 20) {
+        navigate("/result5");
+      }
+    }
+    return;
   };
 
   return (
@@ -33,15 +115,30 @@ const Question8 = () => {
         <div className={style.container_col_check}>
           <div className={style.container_col_check_men}>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                type="radio"
+                name="sugarParent"
+                value={0}
+                onChange={sugarParentCheckHandler}
+              />
               <p>Нет</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                type="radio"
+                name="sugarParent"
+                value={3}
+                onChange={sugarParentCheckHandler}
+              />
               <p>Да: дедушка/бабушка, тетя/дядя, двоюродные братья, сестры</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                type="radio"
+                name="sugarParent"
+                value={5}
+                onChange={sugarParentCheckHandler}
+              />
               <p>Да: родители, брат/сестра или собственный ребенок</p>
             </div>
           </div>

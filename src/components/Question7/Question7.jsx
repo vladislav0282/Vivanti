@@ -4,16 +4,31 @@ import { useNavigate } from "react-router-dom";
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg7 from "../../assets/questImg7.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getSugarCheck,
+  getSugarCheckSelector,
+} from "../../redux/slices/sugarCheckSlice";
 
 const Question7 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const sugarCheck = useSelector(getSugarCheckSelector);
+
+  function sugarCheckHandler(e) {
+    dispatch(getSugarCheck(e.target.value));
+  }
 
   const goBackHandler = () => {
     navigate("/question6");
   };
 
   const goForwardHandler = () => {
-    navigate("/question8");
+    if (sugarCheck) {
+      navigate("/question8");
+    }
+    return;
   };
 
   return (
@@ -34,11 +49,21 @@ const Question7 = () => {
         <div className={style.container_col_check}>
           <div className={style.container_col_check_men}>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={0}
+                type="radio"
+                name="sugar"
+                onChange={sugarCheckHandler}
+              />
               <p>Нет</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={1}
+                type="radio"
+                name="sugar"
+                onChange={sugarCheckHandler}
+              />
               <p>Да</p>
             </div>
           </div>

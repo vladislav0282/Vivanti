@@ -4,16 +4,31 @@ import { useNavigate } from "react-router-dom";
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg3 from "../../assets/questImg3.svg";
+import {
+  getCheckBodySelector,
+  getCheckBodyValue,
+} from "../../redux/slices/checkBodySlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Question3 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const checkBodyValue = useSelector(getCheckBodySelector);
+
+  const checkBodyHandleChange = (e) => {
+    dispatch(getCheckBodyValue(e.target.value));
+  };
 
   const goBackHandler = () => {
     navigate("/question2");
   };
 
   const goForwardHandler = () => {
-    navigate("/question4");
+    if (checkBodyValue) {
+      navigate("/question4");
+    }
+    return;
   };
 
   return (
@@ -32,30 +47,72 @@ const Question3 = () => {
           <div className={style.container_col_check_men}>
             <p>Мужчины</p>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                id="1"
+                type="radio"
+                name="gender"
+                value={0}
+                //checked={isCheckBody}
+                onChange={checkBodyHandleChange}
+              />
               <p>{"<"} 94 см</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                id="2"
+                type="radio"
+                name="gender"
+                value={3}
+                //checked={isCheckBody}
+                onChange={checkBodyHandleChange}
+              />
               <p>94—102 см</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                id="3"
+                type="radio"
+                name="gender"
+                value={4}
+                //checked={isCheckBody}
+                onChange={checkBodyHandleChange}
+              />
               <p>{">"} 102 см</p>
             </div>
           </div>
           <div className={style.container_col_check_men}>
             <p>Женщины</p>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                id="4"
+                type="radio"
+                name="gender"
+                value={0}
+                //checked={isCheckBody}
+                onChange={checkBodyHandleChange}
+              />
               <p>{"<"} 80 см</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={3}
+                id="5"
+                type="radio"
+                name="gender"
+                //checked={isCheckBody}
+                onChange={checkBodyHandleChange}
+              />
               <p>80—88 см</p>
             </div>
             <div className={style.container_col_check_input}>
-              <input type="checkbox" />
+              <input
+                value={4}
+                id="6"
+                type="radio"
+                name="gender"
+                //checked={isCheckBody}
+                onChange={checkBodyHandleChange}
+              />
               <p>{">"} 88 см</p>
             </div>
           </div>

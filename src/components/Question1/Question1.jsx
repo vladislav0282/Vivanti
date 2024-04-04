@@ -4,16 +4,28 @@ import { useNavigate } from "react-router-dom";
 import foundationArrowLeft from "../../assets/foundation_arrow-up.svg";
 import foundationArrowRight from "../../assets/Vector.svg";
 import questImg1 from "../../assets/questImg1.svg";
+import { getAge, getAgeSelector } from "../../redux/slices/ageSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Question1 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const age = useSelector(getAgeSelector);
+
+  const ageHandleChange = (event) => {
+    dispatch(getAge(event.target.value));
+  };
 
   const goBackHandler = () => {
     navigate("/");
   };
 
   const goForwardHandler = () => {
-    navigate("/question2");
+    if (age) {
+      navigate("/question2");
+    }
+    return;
   };
 
   return (
@@ -24,10 +36,12 @@ const Question1 = () => {
         </div>
         <div className={style.container_textInput}>
           <div className={style.container_textInput_label}>
-            <label for="age">Введите возраст Вашего пациента</label>
+            <label htmlFor="age">Введите возраст Вашего пациента</label>
           </div>
           <input
             className={style.container_textInput_input}
+            value={age}
+            onChange={ageHandleChange}
             id="age"
             type="text"
             placeholder="Текст"
