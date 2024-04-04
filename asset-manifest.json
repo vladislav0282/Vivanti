@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/Vivanti/static/css/main.69255d7c.css",
+    "main.js": "/Vivanti/static/js/main.dc95934c.js",
+    "static/media/questImg3.svg": "/Vivanti/static/media/questImg3.fa463d545d9114f6878da42f69cde5ec.svg",
+    "static/media/questImg6.svg": "/Vivanti/static/media/questImg6.9d81aaf5b3017d2cb8e7299911999205.svg",
+    "static/media/startImg.svg": "/Vivanti/static/media/startImg.d5c5c1adee88720a7c75400f3f9ff1de.svg",
+    "static/media/баннер 1.svg": "/Vivanti/static/media/баннер 1.4a8f98d3bb29765bdcb3cfcf443a1fe3.svg",
+    "static/media/questImg5.svg": "/Vivanti/static/media/questImg5.fcc7058659f103ac88418e138bc38ee8.svg",
+    "static/media/questImg1.svg": "/Vivanti/static/media/questImg1.13d997c8667699654052ab66306bbf36.svg",
+    "static/media/questImg8.svg": "/Vivanti/static/media/questImg8.03d7245663895c2827c30e1076a33fc6.svg",
+    "static/media/questImg4.svg": "/Vivanti/static/media/questImg4.c48b81c85113dab31e75fce0cc0c48f9.svg",
+    "static/media/questImg2.svg": "/Vivanti/static/media/questImg2.34ac53482260c739a07ba7104d3f56bf.svg",
+    "static/media/questImg7.svg": "/Vivanti/static/media/questImg7.682d16685f995aa26c19240cb8c6245e.svg",
+    "static/media/diagram12.svg": "/Vivanti/static/media/diagram12.7942c4e3f73795b73e7e524f06dd749b.svg",
+    "static/media/diagram14.svg": "/Vivanti/static/media/diagram14.ecc91dfe1f4941984dc289d509c1ecc2.svg",
+    "static/media/diagram15_20.svg": "/Vivanti/static/media/diagram15_20.11dbd3b620a2d8c4f1a3b701c7b94efc.svg",
+    "static/media/diagram_20.svg": "/Vivanti/static/media/diagram_20.544dd8202894f93d6af45c5633d1d3a3.svg",
+    "static/media/Vector.svg": "/Vivanti/static/media/Vector.29fb30b71b075d5d5a369c25518f056b.svg",
+    "static/media/foundation_arrow-up.svg": "/Vivanti/static/media/foundation_arrow-up.2f8a5cb0eb10652a387f6dc5c981b14d.svg",
+    "static/media/15—20.svg": "/Vivanti/static/media/15—20.e07d6e5cec883e61da43a3e1a51c24ce.svg",
+    "static/media/_20.svg": "/Vivanti/static/media/_20.517214ce3792167b96f80f70395b023f.svg",
+    "static/media/_12_14.svg": "/Vivanti/static/media/_12_14.0f6ec6bcfd0b2996e790592004667509.svg",
+    "static/media/_12.svg": "/Vivanti/static/media/_12.c2f1001bfe173b16df531351056def18.svg",
+    "static/media/icon_location.svg": "/Vivanti/static/media/icon_location.cead72210bd8b24844fa2cf3f17e91bd.svg",
+    "static/media/reload.svg": "/Vivanti/static/media/reload.3078fc2e6e4b8a4627c96f78e9c55c01.svg",
+    "static/media/icon_contacts.svg": "/Vivanti/static/media/icon_contacts.e46782dc8f2ac742cdcda32df38846bc.svg",
+    "index.html": "/Vivanti/index.html",
+    "static/media/result.svg": "/Vivanti/static/media/result.a79d4c98713088e5217d33c15cd6aef6.svg",
+    "main.69255d7c.css.map": "/Vivanti/static/css/main.69255d7c.css.map",
+    "main.dc95934c.js.map": "/Vivanti/static/js/main.dc95934c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69255d7c.css",
+    "static/js/main.dc95934c.js"
+  ]
+}
